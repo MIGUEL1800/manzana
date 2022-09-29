@@ -121,7 +121,12 @@
                     echo "<table border=1>";
                     echo "<tr> <td> id </td>  <td> Juego </td>    <td> Votos  </td>   <td> porcentaje  </td> </tr>  ";
                     while ($row=$result->fetch_assoc()){
-                      $p = $row["cantidad"] * 100 / $total;
+                      if($total <> 0){
+                        $p = $row["cantidad"] * 100 / $total;
+                      }
+                      else{
+                        $p = 0;
+                      }
                       $por = round($p,2);  
                         echo "<tr> <td>";
                         echo $row["id"]." </td> ";
